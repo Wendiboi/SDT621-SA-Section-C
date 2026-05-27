@@ -1,7 +1,6 @@
 using System;
 using SectionC_Form.Models;
 
-
 namespace SectionC_Form
 {
     public partial class Form1 : Form
@@ -60,11 +59,11 @@ namespace SectionC_Form
                 var mobilePhone = mobilePhones.FirstOrDefault(m => m.Mobilecode == txtCode.Text);
                 if (mobilePhone != null)
                 {
-                    lblOutput.Text = $"Mobile Code: {mobilePhone.Mobilecode}, Make: {mobilePhone.Make}, Quantity: {mobilePhone.Quantity}";
+                    lblOutput.Text = $"Record Found.";
                 }
                 else
                 {
-                    lblOutput.Text = "Mobile phone not found.";
+                    lblOutput.Text = "Record NOT Found.";
                 }
             }
             else

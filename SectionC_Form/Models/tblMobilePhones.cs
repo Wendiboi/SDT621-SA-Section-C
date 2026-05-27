@@ -6,10 +6,10 @@ namespace SectionC_Form.Models
 {
     public class tblMobilePhones
     {
-        string? Mobilecode { get; set; }
+        public string? Mobilecode { get; set; }
 
-        string? Make { get; set; }
+        public string? Make { get; set; }
 
-        int? Quantity { get; set; }
+        public int? Quantity { get; set; }
     }
 }
