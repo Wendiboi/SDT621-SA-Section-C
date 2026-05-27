@@ -14,21 +14,29 @@ namespace SectionC_Form
 
         public void btnAdd_Click(object sender, EventArgs e)
         {
-            if(txtCode.Text != "" && txtMake.Text != "" && txtQuantity.Text != "")
+            try
             {
-                Models.tblMobilePhones mobilePhone = new Models.tblMobilePhones
+                if (txtCode.Text != "" && txtMake.Text != "" && txtQuantity.Text != "" && int.Parse(txtQuantity.Text) > 0)
                 {
-                    Mobilecode = txtCode.Text,
-                    Make = txtMake.Text,
-                    Quantity = int.Parse(txtQuantity.Text)
-                };
-                mobilePhones.Add(mobilePhone);
-                lblOutput.Text = "Record Added.";
+                    Models.tblMobilePhones mobilePhone = new Models.tblMobilePhones
+                    {
+                        Mobilecode = txtCode.Text,
+                        Make = txtMake.Text,
+                        Quantity = int.Parse(txtQuantity.Text)
+                    };
+                    mobilePhones.Add(mobilePhone);
+                    lblOutput.Text = "Record Added.";
+                }
+                else
+                {
+                    lblOutput.Text = "Please fill in all fields.";
+                }
+                ;
             }
-            else
+            catch (FormatException)
             {
-                lblOutput.Text = "Please fill in all fields.";
-            };
+                lblOutput.Text = "Quantity must be a valid number.";
+            };        
         }
 
         public void btnDelete_Click(object sender, EventArgs e)
